@@ -26,11 +26,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Đường dẫn tuyệt đối �
 SECRET_KEY = 'django-insecure-u7qa_pj66o6xvg+_-j3j@p!39pu%9(ec(#udo&!siz&4y3mn3u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+    "https://*.vercel.app",
+]
 # Application definition
 
 SITE_ID = 2 
@@ -53,7 +56,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
-'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
